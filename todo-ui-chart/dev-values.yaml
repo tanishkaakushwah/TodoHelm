@@ -1,0 +1,49 @@
+common:
+  containerRegistryURL: blibacr4829.azurecr.io
+  ingressClass: azure-application-gateway
+  
+ui:
+  replicas: 2
+  image:
+    e: todo-ui
+    tagnam: v4
+  port: 80
+  ServicePort: 80
+  ingress:
+    host: dev-ui.tanishka.store
+
+getTask:
+  replicas: 2
+  image:
+    name: todo-get-tasks-api
+    tag: v1
+  port: 8000
+  ServicePort: 80
+  connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:blib-sqlserver.database.windows.net,1433;Database=blib-db;Uid=tani;Pwd=Sql@Admin#8974;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+  ingress:
+    host: dev-get-tasks-api.tanishka.store
+    ingressClass: azure-application-gateway
+
+deleteTask:
+  replicas: 2
+  image:
+    name: todo-delete-tasks-api
+    tag: v1
+  port: 8000
+  ServicePort: 80
+  connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:blib-sqlserver.database.windows.net,1433;Database=blib-db;Uid=tani;Pwd=Sql@Admin#8974;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+  ingress:
+    host: dev-delete-task-api.tanishka.store
+    ingressClass: azure-application-gateway
+
+addTask:
+  replicas: 2
+  image:
+    name: todo-add-tasks-api
+    tag: v1
+  port: 8000
+  ServicePort: 80
+  connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:blib-sqlserver.database.windows.net,1433;Database=blib-db;Uid=tani;Pwd=Sql@Admin#8974;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+  ingress:
+    host: dev-add-task-api.tanishka.store
+    ingressClass: azure-application-gateway
