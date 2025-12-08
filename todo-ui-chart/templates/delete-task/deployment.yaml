@@ -15,6 +15,7 @@ spec:
       containers:
       - name: {{ .Release.Name }}-todo-delete-tasks-api
         image: "{{ .Values.common.containerRegistryURL }}/{{ .Values.deleteTask.image.name }}:{{ .Values.deleteTask.image.tag }}"
+        imagePullPolicy: Always
         ports:
         - containerPort: {{ .Values.deleteTask.port }}
         env: 
