@@ -15,5 +15,6 @@ spec:
       containers:
       - name: {{ .Release.Name }}-todo-ui
         image: "{{ .Values.common.containerRegistryURL }}/{{ .Values.ui.image.name }}:{{ .Values.ui.image.tag }}"
+        imagePullPolicy: Always
         ports:
         - containerPort: {{ .Values.ui.port }}
