@@ -15,6 +15,7 @@ spec:
       containers:
       - name: {{ .Release.Name }}-todo-get-task-api
         image: "{{ .Values.common.containerRegistryURL }}/{{ .Values.getTask.image.name }}:{{ .Values.getTask.image.tag }}"
+        imagePullPolicy: Always
         ports:
         - containerPort: {{ .Values.getTask.port }}
         env: 
