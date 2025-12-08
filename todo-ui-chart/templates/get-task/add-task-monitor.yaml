@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: proteus-todo-add-task-api
+      app: {{ .Release.Name }}-todo-add-task-api
   namespaceSelector:
     matchNames:
     - default
